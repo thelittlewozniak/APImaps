@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APImaps", "APImaps\APImaps.csproj", "{49413DB8-207F-462B-B99C-D32274C691FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49413DB8-207F-462B-B99C-D32274C691FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49413DB8-207F-462B-B99C-D32274C691FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49413DB8-207F-462B-B99C-D32274C691FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49413DB8-207F-462B-B99C-D32274C691FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91E7E2EE-2D96-46FD-9EC7-8C5CC3F12A22}
+	EndGlobalSection
+EndGlobal
