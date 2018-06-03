@@ -58,9 +58,16 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Spire.License, Version=1.3.6.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.4.5.8\lib\net40\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=4.5.8.2040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDF.4.5.8\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -95,6 +102,7 @@
     <Compile Include="DAL\DALStatus.cs" />
     <Compile Include="DAL\DALTrust.cs" />
     <Compile Include="DAL\Model1.cs" />
+    <Compile Include="PDF\PdfCreator.cs" />
     <Compile Include="POCO\Player.cs" />
     <Compile Include="POCO\Rapidity.cs" />
     <Compile Include="POCO\Route.cs" />
@@ -128,7 +136,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetDataApi.cs" />
+    <Compile Include="deserialiseDataApi\GetDataApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

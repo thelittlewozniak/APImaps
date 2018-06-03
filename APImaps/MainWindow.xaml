@@ -54,7 +54,7 @@
             </Button>
 
         </Grid>
-        <Grid Margin="200,0,0,0" x:Name="GridPeople" d:IsHidden="True">
+        <Grid Margin="200,0,0,0" x:Name="GridPeople">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource googleblue}"/>
             </Grid.Background>
@@ -150,21 +150,141 @@
                 <SolidColorBrush Color="{DynamicResource googleRed}"/>
             </Grid.Background>
             <Label Content="List of users:" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
-            <ListBox x:Name="listBoxUserRoute" HorizontalAlignment="Left" Height="660" VerticalAlignment="Top" Width="300" Margin="10,50,0,0">
+            <ListBox ItemsSource="{Binding Player}" x:Name="listBoxUserRoute" HorizontalAlignment="Left" Height="610" VerticalAlignment="Top" Width="300" Margin="10,50,0,0">
                 <ListBox.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource googleYellow}"/>
                 </ListBox.BorderBrush>
                 <ListBox.Background>
                     <SolidColorBrush Color="{DynamicResource googleYellow}"/>
                 </ListBox.Background>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding nickname}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
-
+            <Label Content="Add an address:" HorizontalAlignment="Left" Height="35" Margin="349,10,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+            <ListBox x:Name="ListBoxCoordonate" Margin="349,50,10,166">
+                <ListBox.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </ListBox.BorderBrush>
+                <ListBox.Background>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </ListBox.Background>
+            </ListBox>
+            <TextBox x:Name="CoordonateBox" HorizontalAlignment="Left" Height="35" Margin="654,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Foreground="White" FontSize="22" FontFamily="Courier New">
+                <TextBox.Background>
+                    <SolidColorBrush Color="{DynamicResource googleblue}"/>
+                </TextBox.Background>
+                <TextBox.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleblue}"/>
+                </TextBox.BorderBrush>
+            </TextBox>
+            <Button x:Name="AddCoordonate" Content="Add" HorizontalAlignment="Left" Height="35" Margin="929,10,0,0" VerticalAlignment="Top" Width="133" Click="AddCoordonate_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+                </Button.BorderBrush>
+            </Button>
+            <Button x:Name="AddRoute" Content="Add route" HorizontalAlignment="Left" Height="70" Margin="348,563,0,0" VerticalAlignment="Top" Width="356" Click="AddRoute_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+                </Button.BorderBrush>
+            </Button>
+            <Button x:Name="Clear" Content="Clear" HorizontalAlignment="Left" Height="70" Margin="714,563,0,0" VerticalAlignment="Top" Width="356" Click="Clear_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleblue}"/>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleblue}"/>
+                </Button.BorderBrush>
+            </Button>
+            <Button x:Name="ButtonUpdateInRoute" Content="Update" HorizontalAlignment="Left" Height="45" Margin="10,665,0,0" VerticalAlignment="Top" Width="300" Click="ButtonUpdateInRoute_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.BorderBrush>
+            </Button>
+            <Label x:Name="ErrorLabel" HorizontalAlignment="Left" Height="72" Margin="348,638,0,0" VerticalAlignment="Top" Width="722"/>
         </Grid>
         <Grid Margin="200,0,0,0" x:Name="GridPdf" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource googleYellow}"/>
             </Grid.Background>
-        </Grid>
+            <Label Content="List of users:" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+            <ListBox ItemsSource="{Binding Player}" x:Name="listBoxUserPdf" HorizontalAlignment="Left" Height="660" VerticalAlignment="Top" Width="300" Margin="10,50,0,0">
+                <ListBox.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleRed}"/>
+                </ListBox.BorderBrush>
+                <ListBox.Background>
+                    <SolidColorBrush Color="{DynamicResource googleRed}"/>
+                </ListBox.Background>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding nickname}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Label Content="List of Routes:" HorizontalAlignment="Left" Height="35" Margin="349,10,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+            <ListBox x:Name="ListBoxRoutesPdf" HorizontalAlignment="Left" Height="420" Margin="349,50,0,0" VerticalAlignment="Top" Width="721" ItemsSource="{Binding SelectedItem.routes, ElementName=listBoxUserPdf}">
+                <ListBox.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleblue}"/>
+                </ListBox.BorderBrush>
+                <ListBox.Background>
+                    <SolidColorBrush Color="{DynamicResource googleblue}"/>
+                </ListBox.Background>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="idroute:"></TextBlock>
+                                <TextBlock Text="{Binding idroute}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Distance:"></TextBlock>
+                                <TextBlock Text="{Binding distance}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Time:"></TextBlock>
+                                <TextBlock Text="{Binding time}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="lien waze:"></TextBlock>
+                                <TextBlock Text="{Binding wazelink}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="lien maps:"></TextBlock>
+                                <TextBlock Text="{Binding mapslink}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Status:"></TextBlock>
+                                <TextBlock Text="{Binding status.statusName}"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
 
+            </ListBox>
+            <Button Content="Create PDF" HorizontalAlignment="Left" Height="70" Margin="348,483,0,0" VerticalAlignment="Top" Width="722" Click="CreatePdf_Click">
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.BorderBrush>
+            </Button>
+            <Label x:Name="ErrorLabelPdf" HorizontalAlignment="Left" Height="152" Margin="348,558,0,0" VerticalAlignment="Top" Width="722"/>
+        </Grid>
     </Grid>
 </Window>

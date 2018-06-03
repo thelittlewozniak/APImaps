@@ -15,7 +15,7 @@ namespace APImaps
         private List<string> waypoints;
         private double distance;
         private double time;
-        public List<string> Waypoints { get=>waypoints; }
+        public List<string> Waypoints { get => waypoints; set => waypoints = value; }
         public double DistanceGet { get=>distance; set=>distance=value; }
         public double TimeGet { get=>time; set=>time=value; }
 
@@ -24,12 +24,13 @@ namespace APImaps
             waypoints = new List<string>();
             origin = null;
         }
-        private void AddOrigin(string neworigin) => origin=neworigin;
+        private void AddOrigin(string neworigin) => origin = neworigin;
         public void AddWaypoints(string newwaypoint)
         {
-            if(waypoints.Count<=1)
+            if(waypoints.Count<1)
             {
                 AddOrigin(newwaypoint);
+                waypoints.Add(newwaypoint);
             }
             else
             {
@@ -38,10 +39,11 @@ namespace APImaps
         } 
         private string CreateString()
         {
-             return string.Concat("https://maps.googleapis.com/maps/api/directions/json?&origin=" + origin + string.Join("&waypoints=", waypoints) + "$destination=" + waypoints[waypoints.Count - 1] + "&mode=DRIVING&" + "&key=AIzaSyCeF5hSrF5Rll25V1u0RWO6CFzmmQYDiQo");
+             return string.Concat("https://maps.googleapis.com/maps/api/directions/json?&origin=" + origin + string.Join("&waypoints=", waypoints) + "&destination=" + waypoints[waypoints.Count - 1] + "&mode=DRIVING&" + "&key=AIzaSyCeF5hSrF5Rll25V1u0RWO6CFzmmQYDiQo");
         }
         private DataAPI CallAPI()
         {
+            string url = CreateString();
             var json = new WebClient().DownloadString(CreateString());
             return JsonConvert.DeserializeObject<DataAPI>(json);
         }

@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using APImaps.DAL;
+using APImaps.PDF;
+
 namespace APImaps
 {
     /// <summary>
@@ -27,10 +29,13 @@ namespace APImaps
         DALRapidity dalr = new DALRapidity();
         DALTrust dalt = new DALTrust();
         DALStatus dals = new DALStatus();
+        GetDataApi api = new GetDataApi();
         public MainWindow()
         {
             InitializeComponent();
             listBoxUserPeople.ItemsSource = dal.GetPlayers();
+            listBoxUserRoute.ItemsSource = dal.GetPlayers();
+            listBoxUserPdf.ItemsSource = dal.GetPlayers();
             GridHello.Visibility = Visibility.Visible;
             GridButton.Visibility = Visibility.Hidden;
             ChangeScreen("");
@@ -111,6 +116,49 @@ namespace APImaps
         private void updateBtn_Click(object sender, RoutedEventArgs e)
         {
             listBoxUserPeople.ItemsSource = dal.GetPlayers();
+        }
+
+        private void ButtonUpdateInRoute_Click(object sender, RoutedEventArgs e)
+        {
+            listBoxUserRoute.ItemsSource = dal.GetPlayers();
+        }
+
+        private void AddCoordonate_Click(object sender, RoutedEventArgs e)
+        {
+            api.AddWaypoints(CoordonateBox.Text);
+            CoordonateBox.Clear();
+            ListBoxCoordonate.ItemsSource = null;
+            ListBoxCoordonate.ItemsSource = api.Waypoints;
+        }
+
+        private void AddRoute_Click(object sender, RoutedEventArgs e)
+        {
+            if(listBoxUserRoute.SelectedItem==null)
+            {
+                ErrorLabel.Content = "Sélectionner un player pour pouvoir lui ajouter une route";
+            }
+            else if(api.Waypoints.Count<1)
+            {
+                ErrorLabel.Content = "Ajouter au moins une coordonnées avant de vouloir ajouter une route";
+            }
+            else
+            {
+                dalro.AddRoute(dalro.Calculate(api, (Player)listBoxUserRoute.SelectedItem));
+            }
+        }
+
+        private void Clear_Click(object sender, RoutedEventArgs e)
+        {
+            api.Waypoints = null;
+            ListBoxCoordonate.ItemsSource = api.Waypoints;
+        }
+
+        private void CreatePdf_Click(object sender, RoutedEventArgs e)
+        {
+            Player p = (Player)listBoxUserPdf.SelectedItem;
+            Route r = (Route)ListBoxRoutesPdf.SelectedItem;
+            PdfCreator newPdf = new PdfCreator();
+            newPdf.Treatment(r, p);
         }
     }
 
