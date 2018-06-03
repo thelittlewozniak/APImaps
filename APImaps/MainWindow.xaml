@@ -5,8 +5,107 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APImaps"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="APIMaps" Height="720" Width="1280" Topmost="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Window.Resources>
+        <Color x:Key="googleblue">#FF4885ED</Color>
+        <Color x:Key="googleRed">#FFDB3236</Color>
+        <Color x:Key="googleYellow">#FFF4C20D</Color>
+        <Color x:Key="googleGreen">#FF3CBA54</Color>
+    </Window.Resources>
     <Grid>
-        
+        <Grid x:Name="GridHello" Margin="0,0,0,0" d:IsHidden="True">
+            <Image HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" Source="hello_1x.png"/>
+        </Grid>
+        <Grid x:Name="GridButton" Margin="0,0,1080,0">
+            <Grid.Background>
+                <SolidColorBrush Color="Gray"/>
+            </Grid.Background>
+            <Button x:Name="ButtonPeople" Content="People" HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="200" Click="ButtonPeople_Click" Foreground="White" FontFamily="Courier New" FontSize="24">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleblue}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleblue}"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ButtonRoute" Content="Add Route" HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="200" Click="ButtonRoute_Click" Margin="0,180,0,0" Foreground="White" FontSize="24" FontFamily="Courier New">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleRed}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleRed}"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ButtonPDF" Content="Create PDF" HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="200" Click="ButtonPDF_Click" Margin="0,360,0,0" Foreground="White" FontSize="24" FontFamily="Courier New">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ButtonLeave" Content="Leave" HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="200" Margin="0,540,0,0" Foreground="White" Click="ButtonLeave_Click" FontSize="24" FontFamily="Courier New">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.Background>
+            </Button>
+
+        </Grid>
+        <Grid Margin="200,0,0,0" x:Name="GridPeople">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource googleblue}"/>
+            </Grid.Background>
+            <Label Content="List of users:" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+            <ListBox x:Name="listBoxUserPeople" HorizontalAlignment="Left" Height="660" VerticalAlignment="Top" Width="300" Margin="10,50,0,0">
+                <ListBox.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleRed}"/>
+                </ListBox.BorderBrush>
+                <ListBox.Background>
+                    <SolidColorBrush Color="{DynamicResource googleRed}"/>
+                </ListBox.Background>
+            </ListBox>
+            <Label Content="Description of user:" HorizontalAlignment="Left" Height="35" Margin="349,10,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+            <Grid Margin="349,50,10,497">
+                <Grid.Background>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Grid.Background>
+                <Label Content="Username:" HorizontalAlignment="Left" Height="35" Margin="0,0,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+                <Label Content="Rapidity:" HorizontalAlignment="Left" Height="35" Margin="0,40,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+                <Label Content="Trust:" HorizontalAlignment="Left" Height="35" Margin="0,80,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+            </Grid>
+            <Label Content="List of Routes:" HorizontalAlignment="Left" Height="35" Margin="349,250,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+            <ListBox HorizontalAlignment="Left" Height="420" Margin="349,290,0,0" VerticalAlignment="Top" Width="721">
+                <ListBox.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+                </ListBox.BorderBrush>
+                <ListBox.Background>
+                    <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+                </ListBox.Background>
+            </ListBox>
+        </Grid>
+        <Grid Margin="200,0,0,0" x:Name="GridRoute" d:IsHidden="True">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource googleRed}"/>
+            </Grid.Background>
+            <Label Content="List of users:" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+            <ListBox x:Name="listBoxUserRoute" HorizontalAlignment="Left" Height="660" VerticalAlignment="Top" Width="300" Margin="10,50,0,0">
+                <ListBox.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+                </ListBox.BorderBrush>
+                <ListBox.Background>
+                    <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+                </ListBox.Background>
+            </ListBox>
+
+        </Grid>
+        <Grid Margin="200,0,0,0" x:Name="GridPdf" d:IsHidden="True">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource googleYellow}"/>
+            </Grid.Background>
+        </Grid>
+
     </Grid>
 </Window>
