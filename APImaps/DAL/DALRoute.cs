@@ -24,13 +24,13 @@ namespace APImaps.DAL
         }
         public Route GetRoute(int idUser)
         {
-            Route route = (Route)(from Route e in model.routes where e.idplayer == idUser select e);
+            Route route = (Route)(from Route e in model.routes where e.idplayer == idUser select e).First();
 
             return route;
         }
         public void ChangeStatus(Status Newstatus,Route route)
         {
-            Route editroute = (Route)(from Route e in model.routes where e.idroute == route.idroute select e);
+            Route editroute = (Route)(from Route e in model.routes where e.idroute == route.idroute select e).First();
             editroute.status = Newstatus;
             model.SaveChanges();
         }
@@ -41,7 +41,8 @@ namespace APImaps.DAL
             newroute.wazelink = CreateWazeLink(api.Waypoints);
             newroute.mapslink = CreateMapsLink(api.Waypoints);
             newroute.time = api.TimeGet;
-            newroute.status=
+            newroute.distance = api.DistanceGet;
+            newroute.status = (Status)(from Status status in model.status where status.idstatus == 1 select status).First();
 
             return newroute;
         }

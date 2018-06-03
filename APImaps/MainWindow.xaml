@@ -54,18 +54,25 @@
             </Button>
 
         </Grid>
-        <Grid Margin="200,0,0,0" x:Name="GridPeople">
+        <Grid Margin="200,0,0,0" x:Name="GridPeople" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource googleblue}"/>
             </Grid.Background>
             <Label Content="List of users:" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
-            <ListBox x:Name="listBoxUserPeople" HorizontalAlignment="Left" Height="660" VerticalAlignment="Top" Width="300" Margin="10,50,0,0">
+            <ListBox ItemsSource="{Binding Player}" x:Name="listBoxUserPeople" HorizontalAlignment="Left" Height="615" VerticalAlignment="Top" Width="300" Margin="10,50,0,0">
                 <ListBox.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource googleRed}"/>
                 </ListBox.BorderBrush>
                 <ListBox.Background>
                     <SolidColorBrush Color="{DynamicResource googleRed}"/>
                 </ListBox.Background>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding nickname}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
             <Label Content="Description of user:" HorizontalAlignment="Left" Height="35" Margin="349,10,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
             <Grid Margin="349,50,10,497">
@@ -75,18 +82,70 @@
                 <Label Content="Username:" HorizontalAlignment="Left" Height="35" Margin="0,0,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
                 <Label Content="Rapidity:" HorizontalAlignment="Left" Height="35" Margin="0,40,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
                 <Label Content="Trust:" HorizontalAlignment="Left" Height="35" Margin="0,80,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+                <Label x:Name="labelNickname" HorizontalAlignment="Left" Height="35" Margin="411,0,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22" Content="{Binding SelectedItem.nickname, ElementName=listBoxUserPeople}"/>
+                <Label x:Name="labelRapidity" HorizontalAlignment="Left" Height="35" Margin="411,40,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22" Content="{Binding SelectedItem.rapidity.RapidityName, ElementName=listBoxUserPeople}"/>
+                <Label x:Name="labelTrust" HorizontalAlignment="Left" Height="35" Margin="411,80,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22" Content="{Binding SelectedItem.trust.trustName, ElementName=listBoxUserPeople}"/>
+                <Label Content="Rapidity:" HorizontalAlignment="Left" Height="35" Margin="0,40,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
+                <Label Content="Trust:" HorizontalAlignment="Left" Height="35" Margin="0,80,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
             </Grid>
             <Label Content="List of Routes:" HorizontalAlignment="Left" Height="35" Margin="349,250,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
-            <ListBox HorizontalAlignment="Left" Height="420" Margin="349,290,0,0" VerticalAlignment="Top" Width="721">
+            <ListBox x:Name="ListBoxRoutesPeople" HorizontalAlignment="Left" Height="420" Margin="349,290,0,0" VerticalAlignment="Top" Width="721" ItemsSource="{Binding SelectedItem.routes, ElementName=listBoxUserPeople}" MouseDoubleClick="ListBox_SelectionChanged">
                 <ListBox.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource googleYellow}"/>
                 </ListBox.BorderBrush>
                 <ListBox.Background>
                     <SolidColorBrush Color="{DynamicResource googleYellow}"/>
                 </ListBox.Background>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="idroute:"></TextBlock>
+                                <TextBlock Text="{Binding idroute}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Distance:"></TextBlock>
+                                <TextBlock Text="{Binding distance}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Time:"></TextBlock>
+                                <TextBlock Text="{Binding time}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="lien waze:"></TextBlock>
+                                <TextBlock Text="{Binding wazelink}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="lien maps:"></TextBlock>
+                                <TextBlock Text="{Binding mapslink}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Status:"></TextBlock>
+                                <TextBlock Text="{Binding status.statusName}"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
             </ListBox>
+            <Button x:Name="AddPlayerBtn" Content="Add a player" HorizontalAlignment="Left" Height="40" Margin="10,670,0,0" VerticalAlignment="Top" Width="140" Foreground="White" Click="AddPlayer">
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="updateBtn" Content="Update" HorizontalAlignment="Left" Height="40" Margin="170,670,0,0" VerticalAlignment="Top" Width="140" Foreground="White" Click="updateBtn_Click" >
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.Background>
+            </Button>
         </Grid>
-        <Grid Margin="200,0,0,0" x:Name="GridRoute" d:IsHidden="True">
+        <Grid Margin="200,0,0,0" x:Name="GridRoute">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource googleRed}"/>
             </Grid.Background>

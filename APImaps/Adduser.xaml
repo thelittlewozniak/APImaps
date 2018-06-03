@@ -1,0 +1,21 @@
+﻿<Window x:Class="APImaps.Adduser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:APImaps"
+        mc:Ignorable="d"
+        Title="APIMaps" Height="205.714" Width="383.782" Topmost="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Label x:Name="labelNickname" Content="nickname" HorizontalAlignment="Left" Height="30" Margin="24,10,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="txtBoxNickname" HorizontalAlignment="Left" Height="30" Margin="266,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" UndoLimit="97"/>
+        <Label x:Name="labelRapidity" Content="Rapidity(1=slow,2=normal,3=Fast)" HorizontalAlignment="Left" Height="30" Margin="24,40,0,0" VerticalAlignment="Top" Width="237"/>
+        <TextBox x:Name="txtBoxRapidity" HorizontalAlignment="Left" Height="30" Margin="266,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" UndoLimit="97"/>
+        <Label x:Name="labelTrust" Content="Trust(1=no trust,2=trust,3=very high trust)" HorizontalAlignment="Left" Height="30" Margin="24,70,0,0" VerticalAlignment="Top" Width="237"/>
+        <TextBox x:Name="txtBoxTrust" HorizontalAlignment="Left" Height="30" Margin="266,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" UndoLimit="97"/>
+        <Button x:Name="buttonCancel" Content="Cancel" HorizontalAlignment="Left" Height="30" Margin="24,105,0,0" VerticalAlignment="Top" Width="167" Click="buttonClear_Click"/>
+        <Button x:Name="buttonSend" Content="Add" HorizontalAlignment="Left" Height="30" Margin="196,105,0,0" VerticalAlignment="Top" Width="170" Click="buttonSend_Click"/>
+        <TextBox x:Name="ErrorBox" HorizontalAlignment="Left" Height="61" Margin="24,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="342"/>
+
+    </Grid>
+</Window>

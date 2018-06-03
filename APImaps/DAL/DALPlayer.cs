@@ -13,5 +13,24 @@ namespace APImaps.DAL
         {
             model = Model1.Instance;
         }
+        public List<Player> GetPlayers()
+        {
+            return model.players.ToList();
+        }
+        public Player GetPlayer(int idPlayer)
+        {
+            Player player = (Player)(from Player p in model.players where p.idplayer == idPlayer select p).First();
+            return player;
+        }
+        public Player GetPlayer(string username)
+        {
+            Player player = (Player)(from Player p in model.players where p.nickname == username select p).First();
+            return player;
+        }
+        public void AddPlayer(Player p)
+        {
+            model.players.Add(p);
+            model.SaveChanges();
+        }
     }
 }

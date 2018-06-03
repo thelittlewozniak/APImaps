@@ -1,4 +1,4 @@
-namespace APImaps
+namespace APImaps.DAL
 {
     using System;
     using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace APImaps
         [Key]
         public int idplayer { get; set; }
 
-        [StringLength(1)]
+        [StringLength(50)]
         public string nickname { get; set; }
 
         public int idrapidity { get; set; }

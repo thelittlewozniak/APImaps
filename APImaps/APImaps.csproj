@@ -81,13 +81,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Adduser.xaml.cs">
+      <DependentUpon>Adduser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="APIMapsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>APIMapsDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DAL\DALPlayer.cs" />
+    <Compile Include="DAL\DALRapidity.cs" />
     <Compile Include="DAL\DALRoute.cs" />
+    <Compile Include="DAL\DALStatus.cs" />
+    <Compile Include="DAL\DALTrust.cs" />
+    <Compile Include="DAL\Model1.cs" />
+    <Compile Include="POCO\Player.cs" />
+    <Compile Include="POCO\Rapidity.cs" />
+    <Compile Include="POCO\Route.cs" />
+    <Compile Include="POCO\Status.cs" />
+    <Compile Include="POCO\Trust.cs" />
     <Compile Include="deserialiseDataApi\Bound.cs" />
     <Compile Include="deserialiseDataApi\DataAPI.cs" />
     <Compile Include="deserialiseDataApi\DistanceDuration.cs" />
@@ -98,12 +110,10 @@
     <Compile Include="deserialiseDataApi\Polyline.cs" />
     <Compile Include="deserialiseDataApi\RouteDes.cs" />
     <Compile Include="deserialiseDataApi\Step.cs" />
-    <Compile Include="DAL\Model1.cs" />
-    <Compile Include="POCO\Player.cs" />
-    <Compile Include="POCO\Rapidity.cs" />
-    <Compile Include="POCO\Route.cs" />
-    <Compile Include="POCO\Status.cs" />
-    <Compile Include="POCO\Trust.cs" />
+    <Page Include="Adduser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -112,7 +122,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataFromSql.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -174,5 +183,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

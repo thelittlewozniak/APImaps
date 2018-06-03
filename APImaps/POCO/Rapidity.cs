@@ -1,4 +1,4 @@
-namespace APImaps
+namespace APImaps.DAL
 {
     using System;
     using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace APImaps
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int idrapidity { get; set; }
 
-        [StringLength(1)]
+        [StringLength(50)]
         public string RapidityName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

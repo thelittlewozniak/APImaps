@@ -1,4 +1,4 @@
-namespace APImaps
+namespace APImaps.DAL
 {
     using System;
     using System.Data.Entity;
@@ -9,13 +9,7 @@ namespace APImaps
     {
         private static Model1 instance = null;
 
-        private Model1(): base("name=Model1"){}
-
-        public virtual DbSet<Player> players { get; set; }
-        public virtual DbSet<Rapidity> rapidities { get; set; }
-        public virtual DbSet<Route> routes { get; set; }
-        public virtual DbSet<Status> status { get; set; }
-        public virtual DbSet<Trust> trusts { get; set; }
+        private Model1() : base("name=Model1") { }
 
         public static Model1 Instance
         {
@@ -28,6 +22,12 @@ namespace APImaps
                 return instance;
             }
         }
+
+        public virtual DbSet<Player> players { get; set; }
+        public virtual DbSet<Rapidity> rapidities { get; set; }
+        public virtual DbSet<Route> routes { get; set; }
+        public virtual DbSet<Status> status { get; set; }
+        public virtual DbSet<Trust> trusts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

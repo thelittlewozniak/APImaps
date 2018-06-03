@@ -1,4 +1,4 @@
-namespace APImaps
+namespace APImaps.DAL
 {
     using System;
     using System.Collections.Generic;
@@ -16,10 +16,10 @@ namespace APImaps
 
         public double? time { get; set; }
 
-        [StringLength(1)]
+        [StringLength(300)]
         public string wazelink { get; set; }
 
-        [StringLength(1)]
+        [StringLength(300)]
         public string mapslink { get; set; }
 
         public int idplayer { get; set; }
