@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APImaps.DAL
 {
-    class DALTrust
+    class DALTrust:ITrust
     {
         private Model1 model;
         public DALTrust()
@@ -15,7 +15,7 @@ namespace APImaps.DAL
         }
         public Trust GetTrust(int idtrust)
         {
-            return (Trust)(from Trust t in model.trusts where t.idtrust == idtrust select t).First();
+            return (from Trust t in model.trusts where t.idtrust == idtrust select t).First();
         }
 
     }

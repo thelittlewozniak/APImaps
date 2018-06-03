@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APImaps.DAL
 {
-    class DALStatus
+    class DALStatus:IStatus
     {
         private Model1 model;
         public DALStatus()
@@ -15,7 +15,7 @@ namespace APImaps.DAL
         }
         public Status GetStatus(int idStatus)
         {
-            return (Status)(from Status s in model.status where s.idstatus == idStatus select s).First();
+            return (from Status s in model.status where s.idstatus == idStatus select s).First();
         }
     }
 }

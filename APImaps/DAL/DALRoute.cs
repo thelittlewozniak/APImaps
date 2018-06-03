@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APImaps.DAL
 {
-    class DALRoute
+    class DALRoute:IRoute
     {
         private Model1 model;
         public DALRoute()
@@ -16,6 +16,11 @@ namespace APImaps.DAL
         public void AddRoute(Route newroute)
         {
             model.routes.Add(newroute);
+            model.SaveChanges();
+        }
+        public void DeleteRoute(Route route)
+        {
+            model.routes.Remove(route);
             model.SaveChanges();
         }
         public List<Route> GetRoutes()

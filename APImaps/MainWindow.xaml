@@ -89,7 +89,7 @@
                 <Label Content="Trust:" HorizontalAlignment="Left" Height="35" Margin="0,80,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
             </Grid>
             <Label Content="List of Routes:" HorizontalAlignment="Left" Height="35" Margin="349,250,0,0" VerticalAlignment="Top" Width="300" Foreground="White" FontFamily="Courier New" FontSize="22"/>
-            <ListBox x:Name="ListBoxRoutesPeople" HorizontalAlignment="Left" Height="420" Margin="349,290,0,0" VerticalAlignment="Top" Width="721" ItemsSource="{Binding SelectedItem.routes, ElementName=listBoxUserPeople}" MouseDoubleClick="ListBox_SelectionChanged">
+            <ListBox x:Name="ListBoxRoutesPeople" HorizontalAlignment="Left" Height="375" Margin="349,290,0,0" VerticalAlignment="Top" Width="721" ItemsSource="{Binding SelectedItem.routes, ElementName=listBoxUserPeople}" MouseDoubleClick="ListBoxRoutesPeople_MouseDoubleClick">
                 <ListBox.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource googleYellow}"/>
                 </ListBox.BorderBrush>
@@ -128,7 +128,7 @@
                 </ListBox.ItemTemplate>
 
             </ListBox>
-            <Button x:Name="AddPlayerBtn" Content="Add a player" HorizontalAlignment="Left" Height="40" Margin="10,670,0,0" VerticalAlignment="Top" Width="140" Foreground="White" Click="AddPlayer">
+            <Button x:Name="AddPlayerBtn" Content="Add a player" HorizontalAlignment="Left" Height="40" Margin="10,670,0,0" VerticalAlignment="Top" Width="140" Foreground="White" Click="AddPlayer" FontFamily="Courier New" FontSize="16">
                 <Button.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource googleGreen}"/>
                 </Button.BorderBrush>
@@ -136,7 +136,15 @@
                     <SolidColorBrush Color="{DynamicResource googleGreen}"/>
                 </Button.Background>
             </Button>
-            <Button x:Name="updateBtn" Content="Update" HorizontalAlignment="Left" Height="40" Margin="170,670,0,0" VerticalAlignment="Top" Width="140" Foreground="White" Click="updateBtn_Click" >
+            <Button x:Name="updateBtn" Content="Update" HorizontalAlignment="Left" Height="40" Margin="170,670,0,0" VerticalAlignment="Top" Width="140" Foreground="White" Click="updateBtn_Click" FontFamily="Courier New" FontSize="22" >
+                <Button.BorderBrush>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <SolidColorBrush Color="{DynamicResource googleGreen}"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="DeleteRouteButton" Content="Delete Route" HorizontalAlignment="Left" Height="40" Margin="350,670,0,0" VerticalAlignment="Top" Width="720" FontFamily="Courier New" FontSize="22" Foreground="White" Click="DeleteRouteButton_Click">
                 <Button.BorderBrush>
                     <SolidColorBrush Color="{DynamicResource googleGreen}"/>
                 </Button.BorderBrush>
@@ -145,7 +153,7 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Grid Margin="200,0,0,0" x:Name="GridRoute">
+        <Grid Margin="200,0,0,0" x:Name="GridRoute" d:IsHidden="True">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource googleRed}"/>
             </Grid.Background>

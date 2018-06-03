@@ -24,11 +24,11 @@ namespace APImaps
     /// </summary>
     public partial class MainWindow : Window
     {
-        DALPlayer dal=new DALPlayer();
-        DALRoute dalro = new DALRoute();
-        DALRapidity dalr = new DALRapidity();
-        DALTrust dalt = new DALTrust();
-        DALStatus dals = new DALStatus();
+        IPlayer dal=new DALPlayer();
+        IRoute dalro = new DALRoute();
+        IRapidity dalr = new DALRapidity();
+        ITrust dalt = new DALTrust();
+        IStatus dals = new DALStatus();
         GetDataApi api = new GetDataApi();
         public MainWindow()
         {
@@ -92,7 +92,7 @@ namespace APImaps
             }
         }
 
-        private void ListBox_SelectionChanged(object sender, MouseButtonEventArgs e)
+        private void ListBoxRoutesPeople_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Route route = (Route)ListBoxRoutesPeople.SelectedItem;
             if(route.status.idstatus==1)
@@ -159,6 +159,14 @@ namespace APImaps
             Route r = (Route)ListBoxRoutesPdf.SelectedItem;
             PdfCreator newPdf = new PdfCreator();
             newPdf.Treatment(r, p);
+        }
+
+        private void DeleteRouteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(ListBoxRoutesPeople.SelectedItem!=null)
+            {
+                dalro.DeleteRoute((Route)ListBoxRoutesPeople.SelectedItem);
+            }
         }
     }
 

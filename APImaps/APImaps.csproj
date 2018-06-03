@@ -101,6 +101,11 @@
     <Compile Include="DAL\DALRoute.cs" />
     <Compile Include="DAL\DALStatus.cs" />
     <Compile Include="DAL\DALTrust.cs" />
+    <Compile Include="DAL\IPlayer.cs" />
+    <Compile Include="DAL\IRapidity.cs" />
+    <Compile Include="DAL\IRoute.cs" />
+    <Compile Include="DAL\IStatus.cs" />
+    <Compile Include="DAL\ITrust.cs" />
     <Compile Include="DAL\Model1.cs" />
     <Compile Include="PDF\PdfCreator.cs" />
     <Compile Include="POCO\Player.cs" />

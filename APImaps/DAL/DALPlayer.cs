@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APImaps.DAL
 {
-    class DALPlayer
+    class DALPlayer:IPlayer
     {
         private Model1 model;
         public DALPlayer()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APImaps.DAL
 {
-    class DALRapidity
+    class DALRapidity:IRapidity
     {
         private Model1 model;
         public DALRapidity()

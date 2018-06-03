@@ -49,9 +49,9 @@ namespace APImaps
             }
             if (test == true)
             {
-                DALPlayer dal = new DALPlayer();
-                DALRapidity dalr = new DALRapidity();
-                DALTrust dalt = new DALTrust();
+                IPlayer dal = new DALPlayer();
+                IRapidity dalr = new DALRapidity();
+                ITrust dalt = new DALTrust();
 
                 Player newPlayer = new Player();
                 newPlayer.nickname = txtBoxNickname.Text;
