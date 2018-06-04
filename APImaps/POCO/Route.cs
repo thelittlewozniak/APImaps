@@ -29,5 +29,20 @@ namespace APImaps.DAL
         public virtual Player player { get; set; }
 
         public virtual Status status { get; set; }
+        public static string CreateWazeLink(List<string> listLatLong)
+        {
+            string wazelink = "";
+            foreach (string latlong in listLatLong)
+            {
+                wazelink += ("waze://?ll=" + latlong + "&navigate=yes");
+            }
+
+            return wazelink;
+        }
+        public static string CreateMapsLink(List<string> listLatLong)
+        {
+            return "https://www.google.com/maps/dir/" + string.Join("/", listLatLong);
+        }
+
     }
 }

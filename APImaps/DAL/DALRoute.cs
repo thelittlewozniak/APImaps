@@ -43,28 +43,13 @@ namespace APImaps.DAL
         {
             Route newroute = new Route();
             api.GetResponse(player.rapidity.RapidityName);
-            newroute.wazelink = CreateWazeLink(api.Waypoints);
-            newroute.mapslink = CreateMapsLink(api.Waypoints);
+            newroute.wazelink = Route.CreateWazeLink(api.Waypoints);
+            newroute.mapslink = Route.CreateMapsLink(api.Waypoints);
             newroute.time = api.TimeGet;
             newroute.distance = api.DistanceGet;
             newroute.status = (from Status status in model.status where status.idstatus == 1 select status).First();
             newroute.player = player;
             return newroute;
         }
-        private static string CreateWazeLink(List<string> listLatLong)
-        {
-            string wazelink = "";
-            foreach (string latlong in listLatLong)
-            {
-                wazelink += ("waze://?ll=" + latlong + "&navigate=yes");
-            }
-
-            return wazelink;
-        }
-        private static string CreateMapsLink(List<string> listLatLong)
-        {
-            return "https://www.google.com/maps/dir/" + string.Join("/", listLatLong);
-        }
-
     }
 }
