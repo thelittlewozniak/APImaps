@@ -15,7 +15,7 @@ namespace APImaps.DAL
         }
         public Rapidity GetRapidity(int idrapidity)
         {
-            Rapidity rapidity=(Rapidity)(from Rapidity r in model.rapidities where r.idrapidity == idrapidity select r).First();
+            Rapidity rapidity=(from Rapidity r in model.rapidities where r.idrapidity == idrapidity select r).First();
             return rapidity;
         }
         public List<Rapidity> GetRapidities()

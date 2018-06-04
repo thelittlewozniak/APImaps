@@ -19,12 +19,12 @@ namespace APImaps.DAL
         }
         public Player GetPlayer(int idPlayer)
         {
-            Player player = (Player)(from Player p in model.players where p.idplayer == idPlayer select p).First();
+            Player player = (from Player p in model.players where p.idplayer == idPlayer select p).First();
             return player;
         }
         public Player GetPlayer(string username)
         {
-            Player player = (Player)(from Player p in model.players where p.nickname == username select p).First();
+            Player player = (from Player p in model.players where p.nickname == username select p).First();
             return player;
         }
         public void AddPlayer(Player p)

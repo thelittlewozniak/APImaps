@@ -13,7 +13,7 @@
         <Color x:Key="googleGreen">#FF3CBA54</Color>
     </Window.Resources>
     <Grid>
-        <Grid x:Name="GridHello" Margin="0,0,0,0" d:IsHidden="True">
+        <Grid x:Name="GridHello" Margin="0,0,0,0">
             <Image HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,10" Source="hello_1x.png"/>
         </Grid>
         <Grid x:Name="GridButton" Margin="0,0,1080,0">
@@ -153,7 +153,7 @@
                 </Button.Background>
             </Button>
         </Grid>
-        <Grid Margin="200,0,0,0" x:Name="GridRoute" d:IsHidden="True">
+        <Grid Margin="200,0,0,0" x:Name="GridRoute">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource googleRed}"/>
             </Grid.Background>
@@ -198,7 +198,7 @@
                     <SolidColorBrush Color="{DynamicResource googleYellow}"/>
                 </Button.BorderBrush>
             </Button>
-            <Button x:Name="AddRoute" Content="Add route" HorizontalAlignment="Left" Height="70" Margin="348,563,0,0" VerticalAlignment="Top" Width="356" Click="AddRoute_Click">
+            <Button x:Name="AddRouteBtn" Content="Add route" HorizontalAlignment="Left" Height="70" Margin="348,563,0,0" VerticalAlignment="Top" Width="356" Click="AddRoute_Click">
                 <Button.Background>
                     <SolidColorBrush Color="{DynamicResource googleYellow}"/>
                 </Button.Background>
@@ -206,7 +206,7 @@
                     <SolidColorBrush Color="{DynamicResource googleYellow}"/>
                 </Button.BorderBrush>
             </Button>
-            <Button x:Name="Clear" Content="Clear" HorizontalAlignment="Left" Height="70" Margin="714,563,0,0" VerticalAlignment="Top" Width="356" Click="Clear_Click">
+            <Button x:Name="ClearBtn" Content="Clear" HorizontalAlignment="Left" Height="70" Margin="714,563,0,0" VerticalAlignment="Top" Width="356" Click="Clear_Click">
                 <Button.Background>
                     <SolidColorBrush Color="{DynamicResource googleblue}"/>
                 </Button.Background>
@@ -224,7 +224,7 @@
             </Button>
             <Label x:Name="ErrorLabel" HorizontalAlignment="Left" Height="72" Margin="348,638,0,0" VerticalAlignment="Top" Width="722"/>
         </Grid>
-        <Grid Margin="200,0,0,0" x:Name="GridPdf" d:IsHidden="True">
+        <Grid Margin="200,0,0,0" x:Name="GridPdf">
             <Grid.Background>
                 <SolidColorBrush Color="{DynamicResource googleYellow}"/>
             </Grid.Background>
@@ -284,7 +284,7 @@
                 </ListBox.ItemTemplate>
 
             </ListBox>
-            <Button Content="Create PDF" HorizontalAlignment="Left" Height="70" Margin="348,483,0,0" VerticalAlignment="Top" Width="722" Click="CreatePdf_Click">
+            <Button x:Name="CreatePDFBtn" Content="Create PDF" HorizontalAlignment="Left" Height="70" Margin="348,483,0,0" VerticalAlignment="Top" Width="722" Click="CreatePdf_Click">
                 <Button.Background>
                     <SolidColorBrush Color="{DynamicResource googleGreen}"/>
                 </Button.Background>
